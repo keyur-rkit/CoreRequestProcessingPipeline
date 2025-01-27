@@ -18,6 +18,10 @@ namespace FiltersDemo
             builder.Services.AddControllers(options =>
             {
                 options.Filters.Add(new CustomActionFilters("Global",1));
+                options.Filters.Add(new CustomAuthorizationFilter("Global"));
+                options.Filters.Add(new CustomResourceFilter("Global"));
+                options.Filters.Add(new CustomResultFilter("Global"));
+                options.Filters.Add(new CustomExceptionFilter());
             });
 
 
