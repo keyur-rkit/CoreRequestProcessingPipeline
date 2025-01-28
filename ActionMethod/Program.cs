@@ -1,6 +1,4 @@
-using FiltersDemo.Filters;
-
-namespace FiltersDemo
+namespace ActionMethod
 {
     public class Program
     {
@@ -14,17 +12,6 @@ namespace FiltersDemo
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
-            // Adding filtes to global level
-            builder.Services.AddControllers(options =>
-            {
-                options.Filters.Add(new CustomActionFilters("Global",1));
-                options.Filters.Add(new CustomAuthorizationFilter("Global"));
-                options.Filters.Add(new CustomResourceFilter("Global"));
-                options.Filters.Add(new CustomResultFilter("Global"));
-                options.Filters.Add(new CustomExceptionFilter());
-            });
-
 
             var app = builder.Build();
 
