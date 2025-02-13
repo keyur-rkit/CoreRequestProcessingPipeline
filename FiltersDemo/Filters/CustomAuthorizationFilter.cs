@@ -27,7 +27,7 @@ namespace FiltersDemo.Filters
         {
             Console.WriteLine($"Authorization Filter - {_name}");
 
-            bool isAuthenticated = context.HttpContext.User.Identity?.IsAuthenticated ?? false;
+            // bool isAuthenticated = context.HttpContext.User.Identity?.IsAuthenticated ?? false;
 
             //if (!isAuthenticated)
             //{

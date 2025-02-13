@@ -32,33 +32,33 @@ namespace RoutingDemo
             app.MapControllers();
             app.UseRouting();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    // optional parameter
-            //    endpoints.Map("/book/{id}/{name?}", async (context) =>
-            //    {
-            //        var bookId = Convert.ToInt32(context.Request.RouteValues["id"]);
-            //        var bookName = Convert.ToString(context.Request.RouteValues["name"]);
-            //        await context.Response.WriteAsync($"Book id : {bookId}\nBook name : {bookName}");
-            //    });
+            app.UseEndpoints(endpoints =>
+            {
+                // optional parameter
+                endpoints.Map("/book/{id}/{name?}", async (context) =>
+                {
+                    var bookId = Convert.ToInt32(context.Request.RouteValues["id"]);
+                    var bookName = Convert.ToString(context.Request.RouteValues["name"]);
+                    await context.Response.WriteAsync($"Book id : {bookId}\nBook name : {bookName}");
+                });
 
-            //    // default parameter
-            //    endpoints.Map("/author/{name=keyur}", async (context) =>
-            //    {
-            //        var name = Convert.ToString(context.Request.RouteValues["name"]);
-            //        await context.Response.WriteAsync($"Name : {name}");
-            //    });
+                // default parameter
+                endpoints.Map("/author/{name=keyur}", async (context) =>
+                {
+                    var name = Convert.ToString(context.Request.RouteValues["name"]);
+                    await context.Response.WriteAsync($"Name : {name}");
+                });
 
-            //    endpoints.MapControllerRoute(
-            //        name: "default",
-            //        pattern: "{controlle}/{action}/{id?}");
-            //});
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controlle}/{action}/{id?}");
+            });
 
-            //// default response
-            //app.Run(async context =>
-            //{
-            //    await context.Response.WriteAsync("default");
-            //});
+            // default response
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("default");
+            });
 
             app.Run();
         }

@@ -14,7 +14,7 @@ namespace RoutingDemo.Controllers
         /// </summary>
         /// <returns>A list of values.</returns>
         // GET: api/<ValuesController>
-        [HttpGet]
+        [HttpGet("GelValues")]
         public IEnumerable<string> Get()
         {
             Console.WriteLine("api/ValuesController/GetAll called");

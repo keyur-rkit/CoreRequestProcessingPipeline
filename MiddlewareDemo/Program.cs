@@ -46,7 +46,7 @@ namespace MiddlewareDemo
                 return Results.Problem(title: "An error occurred", detail: exception?.Message);
             });
             /// enforcing that browsers communicate with the server over HTTPS only
-            app.UseHsts();
+            app.UseHsts();  // HTTP Strict Transport Security
             /// Redirects HTTP requests to HTTPS
             app.UseHttpsRedirection();
             ///required to serve Static files
@@ -57,7 +57,7 @@ namespace MiddlewareDemo
             #endregion
 
             #region Custom Middlewares
-            /*
+            
             app.Use(async (HttpContext context, RequestDelegate next) =>
             {
                 await context.Response.WriteAsync("Before 1 Middlerware \n");
@@ -97,7 +97,7 @@ namespace MiddlewareDemo
             {
                 await context.Response.WriteAsync("3 Middlerware \n");
             });
-            */
+            
             #endregion
 
             #region Swagger Setup (For Development)
